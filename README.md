@@ -9,4 +9,4 @@ The name of the app currently is mern-todo-app
   npm start
 ```
 This will automatically kick off your browser http://localhost:3000 and show the following:
-Edit src/App.js and save to reload.
+\nEdit src/App.js and save to reload.
