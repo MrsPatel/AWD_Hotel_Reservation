@@ -8,5 +8,6 @@ The name of the app currently is mern-todo-app
   cd mern-todo-app 
   npm start
 ```
-This will automatically kick off your browser http://localhost:3000 and show the following:
-Edit src/App.js and save to reload.
+This will automatically kick off your browser http://localhost:3000 and show the following:Edit src/App.js and save to reload.
+##
+nodemon package automatically restarts the node application when file changes in the directory are detected. 
