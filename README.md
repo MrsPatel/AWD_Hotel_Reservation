@@ -4,5 +4,5 @@ The project is all about Hotel Reservation System. The goal of this project is t
 # To run the app 
 Download locally. 
 The name of the app currently is mern-todo-app
-cd mern-todo-app 
-npm start 
+#cd mern-todo-app 
+#npm start 
