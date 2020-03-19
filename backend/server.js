@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 //AWD2020_MoNGo_Proj
 
-//DB Credentials for the MongoAtlas DB
+//DB Credentials for the MongoAtlas
 //DB User: testUser
 //DB Pass: userPass1
 const uri = process.env.ATLAS_URI;
