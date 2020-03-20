@@ -1,9 +1,10 @@
 const router = require('express').Router();
 let Guest =require('../models/guest.model');
 
+//Read a guest 
 router.route('/').get((req, res) => {
     Guest.find()
-        .then(users => res.json(users))
+        .then(guests => res.json(guests))
         .catch(err => res.status(400).json('Erorr: ' + err));
 });
 
@@ -15,7 +16,7 @@ router.route('/add').post((req, res) => {
     const phone = req.body.phone;
     const email = req.body.email;
 
-    const newGeust = new Guest({
+    const newGuest = new Guest({
         guestID,
         firstName,
         lastName,
@@ -23,12 +24,12 @@ router.route('/add').post((req, res) => {
         email
     });
 
-    newGeust.save()
+    newGuest.save()
         .then(() => res.json('Guest created!'))
         .catch(err => res.status(400).json('Error: ' = err));
 });
 
-//Get Guest (READ)
+//Get Guest by ID (READ)
 router.route('/:id').get((req, res) => {
     Guest.findById(req.params.id)
       .then(guest => res.json(guest))
@@ -38,7 +39,7 @@ router.route('/:id').get((req, res) => {
 router.route('/update/:id').post((req, res) => {
     Guest.findById(req.params.id)
         .then(guest => {
-            guest.username = req.body.guestID;
+            guest.guestID = req.body.guestID;
             guest.firstName = req.body.firstName;
             guest.lastName = req.body.lastName;
             guest.phone = req.body.phone;
