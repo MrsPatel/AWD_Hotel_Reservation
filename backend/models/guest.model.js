@@ -9,7 +9,7 @@ const guestSchema = new Schema({
     phone: {type: String, require: true}, 
     email: {type: String, require: true},
 }, {
-    timestamp: true,
+    timestamps: true,
 });
 
 const guest = mongoose.model('guest', guestSchema);

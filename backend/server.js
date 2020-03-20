@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 //AWD2020_MoNGo_Proj
 
-//DB Credentials for the MongoAtlas
+//DB Credentials for the MongoAtlas 
 //DB User: testUser
 //DB Pass: userPass1
 const uri = process.env.ATLAS_URI;
@@ -26,12 +26,14 @@ const hotelRouter = require('./routes/hotel');
 const roomRouter = require('./routes/room');
 const bookingRouter = require('./routes/booking');
 
-//use the fileswill load everything in this router
+//use the files & will load everything in this router
+app.use('/guest', guestRouter);
 app.use('/hotel', hotelRouter);
 app.use('/room', roomRouter);
 app.use('booking', bookingRouter);
 
 
+//Currently this is port 5000 from above
 app.listen(port, () => {
     console.log(`Server is running on: ${port}`);
 });

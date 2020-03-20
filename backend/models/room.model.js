@@ -9,7 +9,7 @@ const roomSchema = new Schema({
     roomRate: {type: Number, require: true}, 
     maxPeople: {type: Number, require: true},
 }, {
-    timestamp: true,
+    timestamps: true,
 });
 
 const room = mongoose.model('guest', roomSchema);

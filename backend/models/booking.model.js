@@ -10,7 +10,7 @@ const bookingSchema = new Schema({
     persons: {type: Number, required: true},
     priceTotal: {type: Number, required: true},
 }, {
-    timestamp: true,
+    timestamps: true,
 });
 
 const booking = mongoose.model('guest', bookingSchema);

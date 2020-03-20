@@ -11,7 +11,7 @@ const hotelSchema = new Schema({
     hotelPhone: {type: String, require: true}, 
     hotelEmail: {type: String, require: true}, 
 }, {
-    timestamp: true,
+    timestamps: true,
 });
 
 const hotel = mongoose.model('guest', hotelSchema);
