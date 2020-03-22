@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+//This is where we create our front end react app
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
+//Do I need to delete strict mode?  
 ReactDOM.render(
   <React.StrictMode>
     <App />
