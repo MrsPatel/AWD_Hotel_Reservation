@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import Navbar from "./components/navbar.component";
-import Filter from "./components/filter.component";
+//import Filter from "./components/filter.component";
 //import filters
 import ExercisesList from "./components/exercises-list.component";
 import EditExercise from "./components/edit-exercise.component";

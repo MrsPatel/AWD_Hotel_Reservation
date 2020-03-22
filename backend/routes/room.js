@@ -16,6 +16,7 @@ router.route('/add').post((req, res) => {
     const roomType = req.body.roomType;
     const roomRate = req.body.roomRate;
     const maxPeople = req.body.maxPeople;
+    
 
     const newRoom = new Room({
         roomID,
