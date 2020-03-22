@@ -1,3 +1,4 @@
+This is just for notes regarding different areas of this project
 Mongoose
 MongoDB Atlas 
 Nodemon to automatically deploy changes 
@@ -60,6 +61,5 @@ We wil;l be using bootrstap
 NPM install react-datepicker
 
 connect front end and backend by causing f/e to send http requests to the backend 
-
 
 
