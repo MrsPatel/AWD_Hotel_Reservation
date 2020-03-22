@@ -3,6 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+
+    #footer{
+      margin: 100px;
+    }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -15,8 +25,35 @@
 
     <title>AWD Hotel Reservations</title>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+  <body class="w3-light-grey">
     <div id="root"></div>
+    <h6>Our hotel is unique and we try to maintain a green footprint. Which is why our hotel only takes payments via Paypal.</h6>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="contact">
+      <h2>Contact</h2>
+      <p>If you have any questions please contact us.</p>
+      <i class="fa fa-map-marker w3-text-red" style="width:30px"></i>Baltimore, MD<br>
+      <i class="fa fa-phone w3-text-red" style="width:30px"></i> Phone: +(123)456-7890)<br>
+      <i class="fa fa-envelope w3-text-red" style="width:30px"> </i> Email: email@email.com<br>
+      <form action="" target="_blank">
+        <p><input class="w3-input w3-padding-16 w3-border" type="text"
+          placeholder="Name" required name="Name"></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+          <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
+      </form>      
+    </div>
   </body>
+  <footer class="navbar-collapse w3-black w3-center id="footer">
+    <h5>Find Us On</h5>
+    <div class="w3-xlarge w3-padding-16">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+    <p>COSC 617 Project</p>
+  </footer>
 </html>
