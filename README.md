@@ -47,6 +47,13 @@ npm will connect your front end to your backend.
 ```text
   npm start
 ```
+If you face scripting error, where it talks about something related to permissionr required to load scripts. 
+Go to windows menu, search for "PowerShell", run it as administrator and then run this command:
+Set-ExecutionPolicy RemoteSigned 
+
+It will ask you Y/N, please type the letter Y and then enter. Close the powershell and run the aforementioned commands again!
+
+
 This will automatically kick off your browser http://localhost:3000.
 ### MongoDB 
 We are using MongoDB Atlas which is basically having MongoDB in the cloud so that we are all working with the same database. 
