@@ -6,12 +6,14 @@ import Navbar from "./components/navbar.component";
 import Footer from "./components/footer.component";
 import Contact from "./components/contact.component";
 import Rooms from "./components/rooms.component";
+import ErrorPage from "./components/error.component";
 //import Filter from "./components/filter.component";
 //import filters
 import ExercisesList from "./components/exercises-list.component";
 import EditExercise from "./components/edit-exercise.component";
 import CreateExercise from "./components/create-exercise.component";
 import CreateUser from "./components/create-user.component";
+
 
 function App() {
   return (

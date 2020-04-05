@@ -27,10 +27,18 @@ connection.once('open', () => {
 //Require files for routes
 const exercisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/users');
+const bookingRouter = require('./routes/booking');
+const roomRouter = require('./routes/room');
+const guestRouter = require('./routes/guest');
+const hotelRouter = require('./routes/hotel'); 
 
 //Use the files for routes
 app.use('/exercises', exercisesRouter);
 app.use('/users', usersRouter);
+app.use('/booking', bookingRouter);
+app.use('/room', roomRouter);
+app.use('/guest', guestRouter);
+app.use('/hotel', hotelRouter);
 
 //Starts the server
 app.listen(port, () => {
