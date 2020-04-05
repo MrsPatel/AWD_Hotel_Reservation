@@ -6,7 +6,7 @@ export default class Navbar extends Component {
   render() {
     return (
         <nav className="">
-            <div lassName="collapse"id="contact"></div>
+            <div className="collapse"id="contact"></div>
             <h2>Rooms Available</h2>
         </nav>
 

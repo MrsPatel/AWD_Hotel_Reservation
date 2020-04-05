@@ -28,6 +28,7 @@ function App() {
         <Route path="/create" component={CreateExercise} />
         <Route path="/user" component={CreateUser} />
         <Route path="/rooms" component={Rooms} />
+        <Route path="/*" component = {ErrorPage} />
         <Contact/>
         <Footer />
       </div>
