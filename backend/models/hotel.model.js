@@ -14,6 +14,6 @@ const hotelSchema = new Schema({
     timestamps: true,
 });
 
-const hotel = mongoose.model('guest', hotelSchema);
+const hotel = mongoose.model('Hotel', hotelSchema);
 
 module.exports = hotel; 

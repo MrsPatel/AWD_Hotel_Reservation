@@ -12,6 +12,6 @@ const guestSchema = new Schema({
     timestamps: true,
 });
 
-const guest = mongoose.model('guest', guestSchema);
+const guest = mongoose.model('Guest', guestSchema);
 
 module.exports = guest; 
