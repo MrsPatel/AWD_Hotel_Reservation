@@ -6,9 +6,7 @@ import Navbar from "./components/navbar.component";
 import Footer from "./components/footer.component";
 import Contact from "./components/contact.component";
 import Rooms from "./components/rooms.component";
-import ErrorPage from "./components/error.component";
-//import Filter from "./components/filter.component";
-//import filters
+import ErrorPage from "./components/error.component.js";
 import ExercisesList from "./components/exercises-list.component";
 import EditExercise from "./components/edit-exercise.component";
 import CreateExercise from "./components/create-exercise.component";
@@ -28,7 +26,6 @@ function App() {
         <Route path="/create" component={CreateExercise} />
         <Route path="/user" component={CreateUser} />
         <Route path="/rooms" component={Rooms} />
-        <Route path="/*" component = {ErrorPage} />
         <Contact/>
         <Footer />
       </div>
