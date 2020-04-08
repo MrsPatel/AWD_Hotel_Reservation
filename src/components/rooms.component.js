@@ -7,7 +7,12 @@ export default class Navbar extends Component {
     return (
         <nav className="">
             <div className="collapse"id="contact"></div>
-            <h2>Rooms Available</h2>
+            <h2>Rooms
+              
+              
+              
+              
+               Available</h2>
             <table>
               <tr>
                 <td><img src="BaseRoom.jpg" alt="Base Room" width="400" height="200" align="left-center"></img></td>
