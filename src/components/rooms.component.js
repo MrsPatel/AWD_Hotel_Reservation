@@ -49,7 +49,7 @@ export default class Navbar extends Component {
                       <li>Breakfast</li>
                       <li>Pets Allowed</li>
                       <li>Free Parking</li>
-                      <li>Kithcen Area</li>
+                      <li>Kitchen Area</li>
                       <li>Rate Per Day: $350</li>
                     </ul>
                 </td>

@@ -5,7 +5,7 @@ let Hotel =require('../models/hotel.model');
 router.route('/').get((req, res) => {
     Hotel.find()
         .then(hotels => res.json(hotels))
-        .catch(err => res.status(400).json('Erorr: ' + err));
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //This CRUD operation should not be accessible. Only the get option
