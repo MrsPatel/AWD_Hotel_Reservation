@@ -31,6 +31,7 @@ const bookingRouter = require('./routes/booking');
 const roomRouter = require('./routes/room');
 const guestRouter = require('./routes/guest');
 const hotelRouter = require('./routes/hotel'); 
+const servicesRouter = require('./routes/services'); 
 
 //Use the files for routes
 app.use('/exercises', exercisesRouter);
@@ -39,6 +40,7 @@ app.use('/booking', bookingRouter);
 app.use('/room', roomRouter);
 app.use('/guest', guestRouter);
 app.use('/hotel', hotelRouter);
+app.use('/services', servicesRouter);
 
 //Starts the server
 app.listen(port, () => {

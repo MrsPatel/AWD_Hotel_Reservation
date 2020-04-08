@@ -7,12 +7,7 @@ export default class Navbar extends Component {
     return (
         <nav className="">
             <div className="collapse"id="contact"></div>
-            <h2>Rooms
-              
-              
-              
-              
-               Available</h2>
+            <h2>Rooms Available</h2>
             <table>
               <tr>
                 <td><img src="BaseRoom.jpg" alt="Base Room" width="400" height="200" align="left-center"></img></td>
@@ -54,7 +49,7 @@ export default class Navbar extends Component {
                       <li>Breakfast</li>
                       <li>Pets Allowed</li>
                       <li>Free Parking</li>
-                      <li>Kithcen Area</li>
+                      <li>Kitchen Area</li>
                       <li>Rate Per Day: $350</li>
                     </ul>
                 </td>
