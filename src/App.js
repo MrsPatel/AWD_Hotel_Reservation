@@ -12,6 +12,8 @@ import EditExercise from "./components/edit-exercise.component";
 import CreateExercise from "./components/create-exercise.component";
 import CreateUser from "./components/create-user.component";
 import Services from "./components/services.component";
+import Attractions from "./components/attractions.component";
+
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
         <Route path="/user" component={CreateUser} />
         <Route path="/rooms" component={Rooms} />
         <Route path="/services" component={Services} />
+        <Route path="/attractions" component={Attractions} />
         <Contact/>
         <Footer />
       </div>
