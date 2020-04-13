@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Navbar from "./components/navbar.component";
 import Footer from "./components/footer.component";
 import Contact from "./components/contact.component";
+import Home from "./components/home.component";
 import Rooms from "./components/rooms.component";
 import ErrorPage from "./components/error.component.js";
 import ExercisesList from "./components/exercises-list.component";
@@ -23,7 +24,7 @@ function App() {
         <br/>
 
         <br/>
-        <Route path="/" exact component={ExercisesList} />
+        <Route path="/" exact component={Home} />
         <Route path="/edit/:id" component={EditExercise} />
         <Route path="/create" component={CreateExercise} />
         <Route path="/user" component={CreateUser} />
