@@ -16,7 +16,7 @@ const Booking = props => (
         <td>{props.booking.checkIn.substring(0,10)}</td>
         <td>{props.booking.checkOut.substring(0,10)}</td>
         <td>
-        <Link to={"/editBooking/"+props.booking._id}>Edit</Link> | <a href="#" onClick={() => { props.deleteBooking(props.booking._id) }}>Cancel</a>
+        <Link to={"/editBooking/"+props.booking._id}>Edit</Link> | <a href="/" onClick={() => { props.deleteBooking(props.booking._id) }}>Cancel</a>
         </td>
     </tr>
 )
