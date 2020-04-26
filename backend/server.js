@@ -25,8 +25,6 @@ connection.once('open', () => {
 
 //Require files for routes
 const homeRouter = require('./routes/home');
-const exercisesRouter = require('./routes/exercises');
-const usersRouter = require('./routes/users');
 const bookingRouter = require('./routes/booking');
 const roomRouter = require('./routes/room');
 const guestRouter = require('./routes/guest');
@@ -38,8 +36,6 @@ const errorRouter = require('./routes/error');
 
 //Use the files for routes
 app.use('/home', homeRouter);
-app.use('/exercises', exercisesRouter);
-app.use('/users', usersRouter);
 app.use('/booking', bookingRouter);
 app.use('/room', roomRouter);
 app.use('/guest', guestRouter);
