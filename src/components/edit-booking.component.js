@@ -24,8 +24,8 @@ export default class EditBooking extends Component {
         
         /*
         
-        Create everything in state so that wehen you update
-        tate it updatesd with the new values
+        Create everything in state so that wehen you update it gets 
+        updated with the new values
         Rooms is an array to select the rooms that are in the database
         */
         this.state = {
@@ -63,7 +63,7 @@ export default class EditBooking extends Component {
             .catch(function (error){
                 console.log(error);
             })
-        axios.get('http://localhost:5000/booking/')
+        axios.get('http://localhost:5000/room/')
             .then(response => {
                 if (response.data.length > 0){
                     this.setState({
@@ -113,7 +113,7 @@ export default class EditBooking extends Component {
     }
 
     /*
-    For these 2 we will add in a date to pass in ang
+    For these 2 we will add in a date to pass in and
     get the value from the date 
     Calendar will be clickable 
     */
@@ -144,7 +144,7 @@ export default class EditBooking extends Component {
         }
 
         console.log(booking);
-        axios.post('http://localhost:5000/booking/update'+this.props.match.params.id, booking)
+        axios.post('http://localhost:5000/booking/update/'+this.props.match.params.id, booking)
             .then (res => console.log(res.data));
         //send user data to backend 
         
@@ -237,7 +237,6 @@ export default class EditBooking extends Component {
                     </div>
                 
                 </form>
-                <p>You are on the create booking component!</p>
             </div>
         )
     }
