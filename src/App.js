@@ -24,13 +24,14 @@ function App() {
         <br/>
 
         <br/>
-        <Route path="/" exact component={Home} />
-        <Route path="/edit/:id" component={EditExercise} />
-        <Route path="/create" component={CreateExercise} />
-        <Route path="/user" component={CreateUser} />
-        <Route path="/rooms" component={Rooms} />
-        <Route path="/services" component={Services} />
-        <Route path="/attractions" component={Attractions} />
+        <Route path="/home" exact component={Home} />
+        <Route path="/" exact component={ExercisesList} />
+        <Route path="/edit/:id" exact component={EditExercise} />
+        <Route path="/create" exact component={CreateExercise} />
+        <Route path="/user" exact component={CreateUser} />
+        <Route path="/rooms" exact component={Rooms} />
+        <Route path="/services" exact component={Services} />
+        <Route path="/attractions" exact component={Attractions} />
         <Contact/>
         <Footer />
       </div>

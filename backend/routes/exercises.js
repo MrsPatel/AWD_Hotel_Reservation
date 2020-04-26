@@ -3,7 +3,7 @@ let Exercise = require('../models/exercise.model');
 
 /*
 localhost:5000/exercises/
-eturns the exercises as json
+returns the exercises as json
 */
 router.route('/').get((req, res) => {
   Exercise.find()
@@ -13,7 +13,7 @@ router.route('/').get((req, res) => {
 
 /*
 exercises/add and its's a post request. 
-We have all values in the re
+We have all values in the req
 */
 router.route('/add').post((req, res) => {
   const username = req.body.username;
@@ -37,12 +37,16 @@ router.route('/add').post((req, res) => {
 :id is created by mongoDB 
 
 */
+//get an individual id 
+//:id is a variable created by MongoDB
+//exercises/objectID will only return the stuff from this one 
 router.route('/:id').get((req, res) => {
     Exercise.findById(req.params.id)
       .then(exercise => res.json(exercise))
       .catch(err => res.status(400).json('Error: ' + err));
 });
   
+//DELETE
 router.route('/:id').delete((req, res) => {
     Exercise.findByIdAndDelete(req.params.id)
       .then(() => res.json('Exercise deleted.'))

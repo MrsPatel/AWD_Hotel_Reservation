@@ -1,5 +1,5 @@
 const router = require('express').Router();
-//requires the model
+//requires the mongoose model
 let User = require('../models/user.model');
 
 //First end point that handles get request for users 
@@ -8,6 +8,13 @@ let User = require('../models/user.model');
 //users.find is a mongoose method which returns a promise
 // in json format
 //res.json means we're returning something in JSON format (users)
+
+//This is the first route
+///users/
+
+//find method returns a promise in JSON format 
+//then returns all the users rs.json means return in JSON format and return users
+//        .then(users => res.json(users))
 router.route('/').get((req, res) => {
   User.find()
     .then(users => res.json(users))

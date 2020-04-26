@@ -2,16 +2,20 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const roomSchema = new Schema({
-    roomID: {type: Number, required: true, unique: true,trim: true},
-    hotelID: {type: Number, required: true},
-    roomType: {type: String, require: true},
-    roomRate: {type: Number, require: true}, 
-    maxPeople: {type: Number, require: true},
-}, {
+//name of the scema + validations 
+//trim means it will trim whitespace at the end
+const userSchema = new Schema({
+    room: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      minlength: 3
+    },
+  }, {
     timestamps: true,
-});
-
-const room = mongoose.model('Room', roomSchema);
-
-module.exports = room;
+  });
+  
+  const User = mongoose.model('Room', userSchema);
+  
+  module.exports = User;
