@@ -10,25 +10,30 @@ router.route('/').get((req, res) => {
 
 //Create a guest (CREATE)
 router.route('/add').post((req, res) => {
-    const guestID = req.body.guestID;
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const phone = req.body.phone;
     const email = req.body.email;
+    const city = req.body.city;
+    const state = req.body.state;
+    const zip = req.body.zip;
 
     const newGuest = new Guest({
-        guestID,
         firstName,
         lastName,
         phone,
-        email
+        email,
+        city,
+        state,
+        zip,
     });
 
     newGuest.save()
-        .then(() => res.json('Guest created!'))
+        .then(() => res.json('Guest added!'))
         .catch(err => res.status(400).json(err));
 });
 
+//GOOD UP TO HERE
 //Get Guest by ID (READ)
 router.route('/:id').get((req, res) => {
     Guest.findById(req.params.id)

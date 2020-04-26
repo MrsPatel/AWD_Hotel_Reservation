@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import ErrorImage from "../images/errorImage.jpg";
 //import { Link } from 'react-router-dom';
 
-export default class ErrorPage extends Component {
+export default class Navbar extends Component {
 
   render() {
+    console.error("error happened here!");
     return (
           <nav className="">
-            <div className="collapse" id="contact"></div>
+            <div className="collapse" id="ERROR"></div>
             <h2>ERROR THIS PAGE DOES NOT EXIST</h2>
-            <img src={ErrorImage} width="1200" height="800" alt="404 Error" width></img>
           </nav>
+          
       );
     }    
 }

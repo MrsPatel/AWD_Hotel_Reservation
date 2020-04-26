@@ -11,22 +11,14 @@ router.route('/').get((req, res) => {
 //This CRUD operation should not be accessible. Only the get option
 //Create a Hotel (CREATE)
 router.route('/add').post((req, res) => {
-    const hotelID = req.body.hotelID;
-    const streetAddress = req.body.streetAddress;
-    const city = req.body.city;
-    const state = req.body.state;
-    const zip = req.body.zip;
     const hotelPhone = req.body.hotelPhone;
-    const hotelEmail = req.body.hotelEmail; 
+    const location = req.body.location;
+    const hotelEmail = req.body.hotelEmail;
 
     const newHotel = new Hotel({
-        hotelID,
-        streetAddress,
-        city,
-        state,
-        zip,
         hotelPhone,
-        hotelEmail
+        location,
+        hotelEmail,
     });
 
     newHotel.save()

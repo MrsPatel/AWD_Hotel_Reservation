@@ -3,17 +3,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const hotelSchema = new Schema({
-    hotelID: {type: Number, required: true, unique: true,trim: true},
-    streetAddress: {type: String, required: true},
-    city: {type: String, require: true},
-    state: {type: String, require: true}, 
-    zip: {type: String, require: true},
     hotelPhone: {type: String, require: true}, 
+    location: {type: String, require: true},
     hotelEmail: {type: String, require: true}, 
 }, {
     timestamps: true,
 });
 
-const hotel = mongoose.model('Hotel', hotelSchema);
+const Hotel = mongoose.model('Hotel', hotelSchema);
 
-module.exports = hotel; 
+module.exports = Hotel; 
