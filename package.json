@@ -16,9 +16,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1"
   },
-  "start": "node server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
