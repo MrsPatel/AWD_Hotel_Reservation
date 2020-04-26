@@ -1,0 +1,68 @@
+//Please find notes and instructions on the app deployment up till now.
+// benson
+//Test line 
+This is just for notes regarding different areas of this project
+Mongoose
+MongoDB Atlas 
+Nodemon to automatically deploy changes 
+React.js 
+
+
+To edit our database: 
+Backend>
+    Models
+    Routes
+        The routes are based on the components in the models. 
+
+React Components 
+    React updates and re-renders components 
+    Component takes paramerters called props 
+        This creates a hierarchy of views called the render method 
+        The render method returns a list of things (html/jsx) you want to see on the screen 
+
+
+Example 
+class ShoppingList extends React.Component{
+    render(){
+        return (
+            <div className = "shopping-list">
+                <h1>Shopping list for {this.props.name}</h1>
+                <ul>
+                    <li>Cereal</li>
+                    <li>Milk</li>
+                    <li>Bananas</li>
+                </ul>
+            </div>
+        );
+    }
+}
+//Sytax is JSX which is similar to HTML
+// Example usage: <ShoppingList name name="Beau" />
+//HTML uses class, JSX uses class name
+
+//index.html page is what loads when we go to the website 
+    div id=root is where the react app loads
+
+//index.js is the JS that loads with out page 
+//App.js is the main stuff we have on our home page 
+
+The .jsx is being returned from App.js which gets loaded into the HTML from index.js
+
+React router makes it easier to route different URL's to react components
+
+All react components start like this: 
+export default class Navbar extends Component{
+    render(){
+        return(
+            html 
+        )
+    }
+}
+
+We wil;l be using bootrstap
+
+NPM install react-datepicker
+
+connect front end and backend by causing f/e to send http requests to the backend 
+
+
