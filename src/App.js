@@ -15,6 +15,7 @@ import CreateBooking from "./components/create-booking.component";
 //import CreateRoom from "./components/create-room.component";
 import Services from "./components/services.component";
 import Attractions from "./components/attractions.component";
+import About from "./components/about.component";
 
 //div className="Container" makes it fall inside the navbar component from bootstrap 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/rooms" exact component={Rooms} />
         <Route path="/services" exact component={Services} />
         <Route path="/attractions" exact component={Attractions} />
+        <Route path="/about" exact component={About} />
         <Contact/>
         <Footer />
       </div>
