@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 export default class Navbar extends Component {
 
   render() {
-    console.error("error happened here!");
     return (
           <nav className="">
             <div className="collapse" id="ERROR"></div>
