@@ -31,6 +31,7 @@ const guestRouter = require('./routes/guest');
 const hotelRouter = require('./routes/hotel'); 
 const servicesRouter = require('./routes/services'); 
 const attractionsRouter = require('./routes/attractions'); 
+const aboutRouter = require('./routes/attractions'); 
 const errorRouter = require('./routes/error');
 
 
@@ -42,6 +43,7 @@ app.use('/guest', guestRouter);
 app.use('/hotel', hotelRouter);
 app.use('/services', servicesRouter);
 app.use('/attractions', attractionsRouter);
+app.use('/about', aboutRouter);
 app.get('*', errorRouter);
 
 //Starts the server port 5000
