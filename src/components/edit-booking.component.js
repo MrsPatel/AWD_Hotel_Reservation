@@ -144,7 +144,7 @@ export default class EditBooking extends Component {
         }
 
         console.log(booking);
-        axios.post('http://localhost:5000/booking/update/'+this.props.match.params.id, booking)
+        axios.post('https://guarded-tundra-05442.herokuapp.com/booking/update/'+this.props.match.params.id, booking)
             .then (res => console.log(res.data));
         //send user data to backend 
         

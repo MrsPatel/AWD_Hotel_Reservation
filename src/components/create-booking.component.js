@@ -129,7 +129,7 @@ export default class CreateBooking extends Component {
         }
 
         console.log(booking);
-        axios.post('http://localhost:5000/booking/add', booking)
+        axios.post('https://guarded-tundra-05442.herokuapp.com/booking/add', booking)
             .then (res => console.log(res.data));
         //send user data to backend 
         
