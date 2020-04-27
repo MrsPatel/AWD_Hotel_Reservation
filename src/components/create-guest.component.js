@@ -98,6 +98,6 @@ export default class CreateGuests extends Component{
                 </div>
             )
         }
-
+;
     }
 }

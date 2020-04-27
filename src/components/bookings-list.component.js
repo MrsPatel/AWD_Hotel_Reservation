@@ -33,7 +33,7 @@ export default class BookingsList extends Component {
 
     //This will get all the bookings from here 
     componentDidMount(){
-        axios.get('http://localhost:5000/booking/')
+        axios.get('https://guarded-tundra-05442.herokuapp.com/booking/')
             .then(response => {
                 this.setState({bookings: response.data})
             })
@@ -43,7 +43,7 @@ export default class BookingsList extends Component {
     }
     
     deleteBooking(id){
-        axios.delete('http://localhost:5000/booking/'+id)
+        axios.delete('https://guarded-tundra-05442.herokuapp.com/booking/'+id)
             //log that it's been deleted
             .then(response => {console.log(response.data)});
 

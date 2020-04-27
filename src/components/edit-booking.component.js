@@ -48,7 +48,7 @@ export default class EditBooking extends Component {
     it loads, it's going to run this
     */
     componentDidMount(){
-        axios.get('http://localhost:5000/booking/'+this.props.match.params.id)
+        axios.get('https://guarded-tundra-05442.herokuapp.com/booking/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     room: response.data.room, 
@@ -63,7 +63,7 @@ export default class EditBooking extends Component {
             .catch(function (error){
                 console.log(error);
             })
-        axios.get('http://localhost:5000/room/')
+        axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
             .then(response => {
                 if (response.data.length > 0){
                     this.setState({
