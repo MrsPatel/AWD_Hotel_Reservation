@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 //import * as serviceWorker from './serviceWorker';
+//service worker
 
 //Loading the app into this element
 ReactDOM.render(<App />, document.getElementById('root'));
