@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path')
 
 //So that we can have environment variables in .env file
 require('dotenv').config(); 
@@ -36,6 +37,7 @@ const errorRouter = require('./routes/error');
 
 
 //Use the files for routes
+app.use('/', express.static(path.join(__dirname, 'public')))
 app.use('/home', homeRouter);
 app.use('/booking', bookingRouter);
 app.use('/room', roomRouter);
