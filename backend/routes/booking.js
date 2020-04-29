@@ -1,12 +1,20 @@
 const router = require('express').Router();
 let Booking =require('../models/booking.model');
+//let Payment = require('../models/payment.model');
 
-//Get Booking
+//Get Bookings
 router.route('/').get((req, res) => {
     Booking.find()
         .then(bookings => res.json(bookings))
         .catch(err => res.status(400).json('Erorr: ' + err));
 });
+//Get last Booking 
+router.route('/last').get((req, res) => {
+    Booking.find().sort({"_id" : -1}).limit(1)
+        .then(booking => res.json(booking))
+        .catch(err => res.status(400).json('Erorr: ' + err));
+});
+
 
 //Create a booking (CREATE)
 /*
@@ -14,6 +22,7 @@ booking/add and its's a post request.
 We have all values in the req
 */
 router.route('/add').post((req, res) => {
+    const book_id = req.body.book_id;
     const room = req.body.room;
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
@@ -23,6 +32,7 @@ router.route('/add').post((req, res) => {
     const checkOut = Date.parse(req.body.checkOut); 
 
     const newBooking = new Booking({
+        book_id,
         room,
         firstName, 
         lastName,
