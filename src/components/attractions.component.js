@@ -15,7 +15,7 @@ export default class Navbar extends Component {
                 <td>
                   <b><font size="5">Playground</font></b>
                     <ul>
-                      <li>For family and kids.</li>
+                      <li>For Family and Kids.</li>
                       <li>Ice Cream Parlour in the Summer</li>
                       <li>Nice sitting area</li>
 
