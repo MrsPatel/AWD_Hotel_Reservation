@@ -47,7 +47,7 @@ export default class CreateBooking extends Component {
     */
     componentDidMount(){
         //axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
-        axios.get('https://localhost:5000/room/')
+        axios.get('http://localhost:5000/room/')
             .then(response => {
                 if (response.data.length > 0){
                     this.setState({
