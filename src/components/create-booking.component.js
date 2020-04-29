@@ -46,8 +46,8 @@ export default class CreateBooking extends Component {
     it loads, it's going to run this to get the room table 
     */
     componentDidMount(){
-        //axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
-        axios.get('https://localhost:5000/room/')
+        axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
+        //axios.get('https://localhost:5000/room/')
             .then(response => {
                 if (response.data.length > 0){
                     this.setState({
@@ -153,11 +153,13 @@ export default class CreateBooking extends Component {
         var paymentCalc = totalStay * roomRate;
 
         //Send booking to backend
-        axios.post('http://localhost:5000/booking/add', booking)
+        axios.post('https://guarded-tundra-05442.herokuapp.com/booking/add', booking)
+        //axios.post('http://localhost:5000/booking/add', booking)
             .then (res => console.log(res.data));
 
         //get payment to get the booking id 
-        axios.get('http://localhost:5000/booking/last')
+        axios.get('https://guarded-tundra-05442.herokuapp.com/booking/last')
+        //axios.get('http://localhost:5000/booking/last')
             .then(response => {
                 if (response.data.length > 0){
                     this.setState({
@@ -183,7 +185,8 @@ export default class CreateBooking extends Component {
         }
         console.log(payment);
         
-        axios.post('http://localhost:5000/payment/add', payment)
+        axios.post('https://guarded-tundra-05442.herokuapp.com/payment/add', payment)
+        //axios.post('http://localhost:5000/payment/add', payment)
             .then (res => console.log(res.data));
         
         //Take person to the payments page

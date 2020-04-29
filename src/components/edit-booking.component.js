@@ -48,8 +48,8 @@ export default class EditBooking extends Component {
     it loads, it's going to run this
     */
     componentDidMount(){
-        //axios.get('https://guarded-tundra-05442.herokuapp.com/booking/'+this.props.match.params.id)
-        axios.get('http://localhost:5000/booking/'+this.props.match.params.id)
+        axios.get('https://guarded-tundra-05442.herokuapp.com/booking/'+this.props.match.params.id)
+        //axios.get('http://localhost:5000/booking/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     room: response.data.room, 
@@ -64,8 +64,8 @@ export default class EditBooking extends Component {
             .catch(function (error){
                 console.log(error);
             })
-        //axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
-        axios.get('http://localhost:5000/room/')
+        axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
+        //axios.get('http://localhost:5000/room/')
             .then(response => {
                 if (response.data.length > 0){
                     this.setState({
@@ -146,8 +146,8 @@ export default class EditBooking extends Component {
         }
 
         console.log(booking);
-        //axios.post('https://guarded-tundra-05442.herokuapp.com/booking/update/'+this.props.match.params.id, booking)
-        axios.post('http://localhost:5000/booking/update/'+this.props.match.params.id, booking)
+        axios.post('https://guarded-tundra-05442.herokuapp.com/booking/update/'+this.props.match.params.id, booking)
+        //axios.post('http://localhost:5000/booking/update/'+this.props.match.params.id, booking)
             .then (res => console.log(res.data));
         //send user data to backend 
         
