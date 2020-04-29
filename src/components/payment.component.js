@@ -65,6 +65,7 @@ export default class PaymentsPage extends Component {
                 <th>Total</th>
                 <th>Booking ID</th>
                 <th>Payment Status</th>
+                <th>Paypal</th>
               </tr>
             </thead>
             <tbody>
