@@ -241,10 +241,7 @@ export default class EditBooking extends Component {
         )
     }
 }
-
 /*
-this.onChangeCheckin = this.onChangeCheckin.bind(this);
-this.onChangeCheckOut = this.onChangeCheckout.bind(this);
-this.onSubmit = this.onSubmit.bind(this);
-
+Edit Booking component will not redirect to payments
+We should cause the edit button to send an email using nodemailer on submit
 */

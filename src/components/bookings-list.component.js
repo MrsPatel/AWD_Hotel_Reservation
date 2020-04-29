@@ -21,7 +21,6 @@ const Booking = props => (
     </tr>
 )
 
-
 export default class BookingsList extends Component {
     constructor (props){
         super(props);
@@ -47,8 +46,7 @@ export default class BookingsList extends Component {
             //log that it's been deleted
             .then(response => {console.log(response.data)});
 
-        //Statee filters to show the one that isn't your booking     
-
+    //State filters to show the one that isn't your booking     
     //The below code updates the page with the new table after the entry is deleted        
     /*
      When the id does not equal the omne we're deleting, we'll pass it to theexercises array. Remove just what we are deleting.  
