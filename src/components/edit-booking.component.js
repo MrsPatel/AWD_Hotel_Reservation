@@ -49,6 +49,7 @@ export default class EditBooking extends Component {
     */
     componentDidMount(){
         axios.get('https://guarded-tundra-05442.herokuapp.com/booking/'+this.props.match.params.id)
+        //axios.get('http://localhost:5000/booking/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     room: response.data.room, 
@@ -64,6 +65,7 @@ export default class EditBooking extends Component {
                 console.log(error);
             })
         axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
+        //axios.get('http://localhost:5000/room/')
             .then(response => {
                 if (response.data.length > 0){
                     this.setState({
@@ -145,6 +147,7 @@ export default class EditBooking extends Component {
 
         console.log(booking);
         axios.post('https://guarded-tundra-05442.herokuapp.com/booking/update/'+this.props.match.params.id, booking)
+        //axios.post('http://localhost:5000/booking/update/'+this.props.match.params.id, booking)
             .then (res => console.log(res.data));
         //send user data to backend 
         
@@ -241,10 +244,7 @@ export default class EditBooking extends Component {
         )
     }
 }
-
 /*
-this.onChangeCheckin = this.onChangeCheckin.bind(this);
-this.onChangeCheckOut = this.onChangeCheckout.bind(this);
-this.onSubmit = this.onSubmit.bind(this);
-
+Edit Booking component will not redirect to payments
+We should cause the edit button to send an email using nodemailer on submit
 */
