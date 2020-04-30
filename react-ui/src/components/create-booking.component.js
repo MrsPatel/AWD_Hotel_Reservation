@@ -52,7 +52,7 @@ export default class CreateBooking extends Component {
             .then(response => {
                 if (response.data.length > 0){
                     this.setState({
-                        rooms: response.data.map(room => room.room),
+                        rooms: response.data.map({room:room.room}),
                         room: response.data[0].room
                     })
                 }
