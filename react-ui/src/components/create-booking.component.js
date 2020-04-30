@@ -48,7 +48,7 @@ export default class CreateBooking extends Component {
     it loads, it's going to run this
     */
     componentDidMount(){
-        axios.get('http://localhost:5000.com/room/')
+        axios.get('https://awd-hotel-reservation.herokuapp.com/room/')
             .then(response => {
                 if (response.data.length > 0){
                     this.setState({
