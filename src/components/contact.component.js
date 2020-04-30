@@ -36,12 +36,19 @@ class Contact extends Component{
     render(){
         return(
             <div className="col-sm-4 offset-sm-4">
+                <pre> </pre>
+                <pre> </pre>
+                <table bgcolor="lightblue">
+                <tr><pre> </pre></tr>
                 <h3>CONTACT US</h3>
+                <p>If you have any questions please contact us below:</p>
                 <ul>
                 <li><i class="fa fa-road"></i>Towson University</li>
                 <li><i class="fa fa-phone"></i>(555)-555-5555</li>
                 <li><i class="fa fa-envelope"></i>ksoni1@students.towson.edu</li>
                 </ul>
+                <tr><pre> </pre></tr>
+                </table>
                 <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
                     <div className="form-group">
                         <label for="name">Name</label>
