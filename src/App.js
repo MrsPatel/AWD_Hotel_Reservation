@@ -42,7 +42,7 @@ function App() {
           <Route exact component={ErrorPage}/>
         </Switch>
 
-        <Contact/>
+        <Contact />
         <Footer />
       </div>
     </Router>

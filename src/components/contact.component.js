@@ -1,28 +1,65 @@
-import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import axios from 'axios';
 
-export default class Navbar extends Component {
+class Contact extends Component{
+  
+    handleSubmit(e){
+        //alert("Message Sent."); 
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
 
-  render() {
-    return (
-        <nav className="">
-            <div className="collapse"id="contact"></div>
-            <h2>Contact Us</h2>
-            <p>If you have any questions please contact us below:</p>
-            <i className="fa fa-map-marker w3-text-red"></i>Baltimore, MD<br></br>
-            <i className="fa fa-phone w3-text-red"></i> Phone: +(123)456-7890)<br></br>
-            <i className="fa fa-envelope w3-text-red"> </i> Email: sriver7@students.towson.edu<br></br>
-            <form action="" target="_blank">
-                <p><input className="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></input></p>
-                <p><input className="w3-input w3-padding-16 w3-border" type="email" placeholder="Email" required name ="Email"></input></p>
-                <p><input className="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></input></p>
-                <p><button className="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
-            </form>
-        </nav>
+        axios({
+            method: "POST", 
+            url:"http://localhost:5000/contact", 
+            data: {
+                name: name,   
+                email: email,  
+                message: message
+            }
+        }).then((response)=>{
+            if (response.data.msg === 'success'){
+                alert("Message Sent."); 
+                this.resetForm()
+            }else if(response.data.msg === 'fail'){
+                alert("Message failed to send.")
+            } 
+        })
+        window.location = '/';
+    }
 
-      );
-    }    
+    resetForm(){
+        document.getElementById('contact-form').reset();
+    }
+
+    render(){
+        return(
+            <div className="col-sm-4 offset-sm-4">
+                <h3>CONTACT US</h3>
+                <ul>
+                <li><i class="fa fa-road"></i>Towson University</li>
+                <li><i class="fa fa-phone"></i>(555)-555-5555</li>
+                <li><i class="fa fa-envelope"></i>ksoni1@students.towson.edu</li>
+                </ul>
+                <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+                    <div className="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" className="form-control" id="name" placeholder="Name" />
+                    </div>
+                    <div className="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" />
+                    </div>
+                    <div className="form-group">
+                        <label for="message">Message</label>
+                        <textarea className="form-control" rows="5" id="message" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        )
+    }
 }
 
-
-
+export default Contact; 
