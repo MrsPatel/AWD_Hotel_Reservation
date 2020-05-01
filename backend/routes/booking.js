@@ -22,6 +22,7 @@ booking/add and its's a post request.
 We have all values in the req
 */
 router.route('/add').post((req, res) => {
+    const hotel = req.body.hotel;
     const book_id = req.body.book_id;
     const room = req.body.room;
     const firstName = req.body.firstName;
@@ -32,6 +33,7 @@ router.route('/add').post((req, res) => {
     const checkOut = Date.parse(req.body.checkOut); 
 
     const newBooking = new Booking({
+        hotel,
         book_id,
         room,
         firstName, 
@@ -73,6 +75,7 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
     Booking.findById(req.params.id)
         .then(booking => {
+            booking.hotel = req.body.hotel;
             booking.room = req.body.room;
             booking.firstName=req.body.firstName;
             booking.lastName = req.body.lastName;

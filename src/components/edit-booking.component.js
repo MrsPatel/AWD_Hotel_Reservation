@@ -12,6 +12,7 @@ export default class EditBooking extends Component {
         //Binding 'this' to each method so that 
         'this' refers to the right thing
         */
+        this.onChangeHotel = this.onChangeHotel.bind(this);
         this.onChangeRoom = this.onChangeRoom.bind(this);
         this.onChangeFirstName = this.onChangeFirstName.bind(this);
         this.onChangeLastName = this.onChangeLastName.bind(this);
@@ -29,6 +30,7 @@ export default class EditBooking extends Component {
         Rooms is an array to select the rooms that are in the database
         */
         this.state = {
+            hotel: '',
             room: '',
             firstName: '',
             lastName: '',
@@ -36,6 +38,7 @@ export default class EditBooking extends Component {
             email: '',
             checkIn: new Date(),
             checkOut: new Date(),
+            hotels: [],
             rooms: []
         }
     }
@@ -52,6 +55,7 @@ export default class EditBooking extends Component {
         axios.get('http://localhost:5000/booking/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
+                    hotel: response.data.hotel, 
                     room: response.data.room, 
                     firstName: response.data.firstName,
                     lastName: response.data.lastName,
@@ -65,6 +69,19 @@ export default class EditBooking extends Component {
                 console.log(error);
             })
         //axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
+        axios.get('http://localhost:5000/hotel/')
+            .then(response => {
+                if (response.data.length > 0){
+                    this.setState({
+                        hotels: response.data.map(hotel => hotel.hotel),
+                        hotel: response.data[0].hotel
+                    })
+                }
+            })
+            .catch ((error) => {
+                console.log(error);
+            })
+
         axios.get('http://localhost:5000/room/')
             .then(response => {
                 if (response.data.length > 0){
@@ -77,7 +94,7 @@ export default class EditBooking extends Component {
             .catch ((error) => {
                 console.log(error);
             })
-    }
+        }
 
     //METHOD FOR WHEN ROOM SELECTION CHANGES
     //WHEN ROOM CHANFGES WE WILL SET THE STATE
@@ -85,6 +102,12 @@ export default class EditBooking extends Component {
     //Whenever room is changed it will set the state. 
     //The targe is the textbox, value will be the value of that textbox
     //This is just fot the room element within the staee
+    onChangeHotel(e){
+        this.setState({
+            hote: e.target.value
+        })
+    }
+
     onChangeRoom(e){
         this.setState({
             room: e.target.value
@@ -136,6 +159,7 @@ export default class EditBooking extends Component {
         e.preventDefault();
 
         const booking = {
+            hotel: this.state.hotel,
             room: this.state.room,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -161,6 +185,23 @@ export default class EditBooking extends Component {
             <div>
                 <h3>Update My Booking</h3>
                 <form onSubmit={this.onSubmit}>
+                    <div className = "form-group">
+                        <label>Hotel: </label>
+                        <select ref="hotelInput"
+                            required
+                            className = "form-control"
+                            value = {this.state.hotel}
+                            onChange={this.onChangeHotel}>
+                            {
+                                this.state.hotels.map(function(hotel){
+                                    return <option
+                                        key={hotel}
+                                        value={hotel}>{hotel}
+                                        </option>
+                                })
+                            }
+                        </select>
+                    </div>
                     <div className = "form-group">
                         <label>Room: </label>
                         <select ref="roomInput"

@@ -11,6 +11,7 @@ export default class CreateBooking extends Component {
         //Binding 'this' to each method so that 
         'this' refers to the right thing
         */
+        this.onChangeHotel = this.onChangeHotel.bind(this);
         this.onChangeRoom = this.onChangeRoom.bind(this);
         this.onChangeFirstName = this.onChangeFirstName.bind(this);
         this.onChangeLastName = this.onChangeLastName.bind(this);
@@ -26,6 +27,7 @@ export default class CreateBooking extends Component {
         Rooms is an array to select the rooms that are in the database
         */
         this.state = {
+            hotel: '',
             room: '',
             firstName: '',
             lastName: '',
@@ -33,6 +35,7 @@ export default class CreateBooking extends Component {
             email: '',
             checkIn: new Date(),
             checkOut: new Date(),
+            hotels: [],
             rooms: [],
             roomCharges: 0
         }
@@ -46,6 +49,18 @@ export default class CreateBooking extends Component {
     it loads, it's going to run this to get the room table 
     */
     componentDidMount(){
+        axios.get('http://localhost:5000/hotel/')
+        .then(response => {
+            if (response.data.length > 0){
+                this.setState({
+                    hotels: response.data.map(hotel => hotel.hotel),
+                    hotel: response.data[0].hotel
+                })
+            }
+        })
+        .catch ((error) => {
+            console.log(error);
+        })
         //axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
         axios.get('http://localhost:5000/room/')
             .then(response => {
@@ -67,6 +82,12 @@ export default class CreateBooking extends Component {
     //Whenever room is changed it will set the state. 
     //The targe is the textbox, value will be the value of that textbox
     //This is just fot the room element within the staee
+    onChangeHotel(e){
+        this.setState({
+            hotel: e.target.value
+        })
+    }
+
     onChangeRoom(e){
         this.setState({
             room: e.target.value
@@ -125,6 +146,7 @@ export default class CreateBooking extends Component {
         e.preventDefault();
         var bookingID = 458950 + Math.floor((Math.random()*9000)+1);
         const booking = {
+            hotel: this.state.hotel,
             book_id: bookingID,
             room: this.state.room,
             firstName: this.state.firstName,
@@ -194,6 +216,23 @@ export default class CreateBooking extends Component {
             <div>
                 <h3>Create New Booking</h3>
                 <form onSubmit={this.onSubmit}>
+                <div className = "form-group">
+                        <label>Hotel: </label>
+                        <select ref="hotelInput"
+                            required
+                            className = "form-control"
+                            value = {this.state.hotel}
+                            onChange={this.onChangeHotel}>
+                            {
+                                this.state.hotels.map(function(hotel){
+                                    return <option
+                                        key={hotel}
+                                        value={hotel}>{hotel}
+                                        </option>
+                                })
+                            }
+                        </select>
+                </div>
                     <div className = "form-group">
                         <label>Room: </label>
                         <select ref="roomInput"
@@ -276,7 +315,7 @@ export default class CreateBooking extends Component {
                     </div>
                 
                 </form>
-                <p>You are on the create booking component!</p>
+                <p></p>
             </div>
         )
     }

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookingSchema = new Schema({
+    hotel: {type: String, required: true},
     book_id: {type: Number, required: true},
     room: {type: String, required: true},
     firstName: {type: String, required: true},
