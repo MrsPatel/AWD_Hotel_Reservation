@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 ///So that port for server kicks off the port for front end 
 
 //So that we can have environment variables in .env file
-require('dotenv').config(); 
+require('dotenv').config();
 
 //To Create Express Server
 const app = express();
@@ -20,7 +20,11 @@ app.use(express.json());
 
 //DB URI to start MongoDB connection 
 const uri = process.env.ATLAS_URI; //From environment variable 
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+});
 const connection = mongoose.connection;
 //.once means once the connection is open it establishes
 connection.once('open', () => {
@@ -32,11 +36,11 @@ const homeRouter = require('./routes/home');
 const bookingRouter = require('./routes/booking');
 const roomRouter = require('./routes/room');
 const guestRouter = require('./routes/guest');
-const hotelRouter = require('./routes/hotel'); 
-const servicesRouter = require('./routes/services'); 
-const attractionsRouter = require('./routes/attractions'); 
-const aboutRouter = require('./routes/attractions'); 
-const contactRouter = require('./routes/contact'); 
+const hotelRouter = require('./routes/hotel');
+const servicesRouter = require('./routes/services');
+const attractionsRouter = require('./routes/attractions');
+const aboutRouter = require('./routes/attractions');
+const contactRouter = require('./routes/contact');
 const errorRouter = require('./routes/error');
 const paymentRouter = require('./routes/payment');
 
@@ -56,5 +60,5 @@ app.use('*', errorRouter);
 
 //Starts the server port 5000
 app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
+  console.log(`Server is running on port: ${port}`);
 });

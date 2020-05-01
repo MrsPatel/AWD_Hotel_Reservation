@@ -50,13 +50,13 @@ export default class EditBooking extends Component {
     When the Create booking component is about to load, right before
     it loads, it's going to run this
     */
-    componentDidMount(){
+    componentDidMount() {
         //axios.get('https://guarded-tundra-05442.herokuapp.com/booking/'+this.props.match.params.id)
-        axios.get('http://localhost:5000/booking/'+this.props.match.params.id)
+        axios.get('http://localhost:5000/booking/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
-                    hotel: response.data.hotel, 
-                    room: response.data.room, 
+                    hotel: response.data.hotel,
+                    room: response.data.room,
                     firstName: response.data.firstName,
                     lastName: response.data.lastName,
                     phone: response.data.phone,
@@ -65,36 +65,36 @@ export default class EditBooking extends Component {
                     checkOut: new Date(response.data.checkOut)
                 })
             })
-            .catch(function (error){
+            .catch(function (error) {
                 console.log(error);
             })
         //axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
         axios.get('http://localhost:5000/hotel/')
             .then(response => {
-                if (response.data.length > 0){
+                if (response.data.length > 0) {
                     this.setState({
                         hotels: response.data.map(hotel => hotel.hotel),
                         hotel: response.data[0].hotel
                     })
                 }
             })
-            .catch ((error) => {
+            .catch((error) => {
                 console.log(error);
             })
 
         axios.get('http://localhost:5000/room/')
             .then(response => {
-                if (response.data.length > 0){
+                if (response.data.length > 0) {
                     this.setState({
                         rooms: response.data.map(room => room.room),
                         room: response.data[0].room
                     })
                 }
             })
-            .catch ((error) => {
+            .catch((error) => {
                 console.log(error);
             })
-        }
+    }
 
     //METHOD FOR WHEN ROOM SELECTION CHANGES
     //WHEN ROOM CHANFGES WE WILL SET THE STATE
@@ -102,36 +102,36 @@ export default class EditBooking extends Component {
     //Whenever room is changed it will set the state. 
     //The targe is the textbox, value will be the value of that textbox
     //This is just fot the room element within the staee
-    onChangeHotel(e){
+    onChangeHotel(e) {
         this.setState({
             hote: e.target.value
         })
     }
 
-    onChangeRoom(e){
+    onChangeRoom(e) {
         this.setState({
             room: e.target.value
         })
     }
 
-    onChangeFirstName(e){
+    onChangeFirstName(e) {
         this.setState({
             firstName: e.target.value
         })
     }
-    onChangeLastName(e){
+    onChangeLastName(e) {
         this.setState({
             lastName: e.target.value
         })
     }
 
-    onChangePhone(e){
+    onChangePhone(e) {
         this.setState({
             phone: e.target.value
         })
     }
 
-    onChangeEmail(e){
+    onChangeEmail(e) {
         this.setState({
             email: e.target.value
         })
@@ -142,19 +142,19 @@ export default class EditBooking extends Component {
     get the value from the date 
     Calendar will be clickable 
     */
-    onChangeCheckin(date){
+    onChangeCheckin(date) {
         this.setState({
             checkIn: date
         })
     }
 
-    onChangeCheckout(date){
+    onChangeCheckout(date) {
         this.setState({
             checkOut: date
         })
     }
 
-    onSubmit(e){
+    onSubmit(e) {
         //prevents default HTML submit behavior from taking place
         e.preventDefault();
 
@@ -171,10 +171,10 @@ export default class EditBooking extends Component {
 
         console.log(booking);
         //axios.post('https://guarded-tundra-05442.herokuapp.com/booking/update/'+this.props.match.params.id, booking)
-        axios.post('http://localhost:5000/booking/update/'+this.props.match.params.id, booking)
-            .then (res => console.log(res.data));
+        axios.post('http://localhost:5000/booking/update/' + this.props.match.params.id, booking)
+            .then(res => console.log(res.data));
         //send user data to backend 
-        
+
 
         //Take the person back to the home page
         //We need to change to take to the payments page

@@ -22,45 +22,51 @@ const Booking = props => (
 )
 
 export default class BookingsList extends Component {
-    constructor (props){
+    constructor(props) {
         super(props);
 
         this.deleteBooking = this.deleteBooking.bind(this);
 
-        this.state = {bookings: []};
+        this.state = {
+            bookings: []
+        };
     }
 
     //This will get all the bookings from here 
-    componentDidMount(){
+    componentDidMount() {
         //axios.get('https://guarded-tundra-05442.herokuapp.com/booking/')
         axios.get('http://localhost:5000/booking/')
             .then(response => {
-                this.setState({bookings: response.data})
+                this.setState({
+                    bookings: response.data
+                })
             })
-            .catch((error)=> {
+            .catch((error) => {
                 console.log(error);
             })
     }
-    
-    deleteBooking(id){
-        //axios.delete('https://guarded-tundra-05442.herokuapp.com/booking/'+id)
-        axios.delete('http://localhost:5000/booking/'+id)
-            //log that it's been deleted
-            .then(response => {console.log(response.data)});
 
-    //State filters to show the one that isn't your booking     
-    //The below code updates the page with the new table after the entry is deleted        
-    /*
-     When the id does not equal the omne we're deleting, we'll pass it to theexercises array. Remove just what we are deleting.  
-     the _id comes from the mongoDb
-    */
+    deleteBooking(id) {
+        //axios.delete('https://guarded-tundra-05442.herokuapp.com/booking/'+id)
+        axios.delete('http://localhost:5000/booking/' + id)
+            //log that it's been deleted
+            .then(response => {
+                console.log(response.data)
+            });
+
+        //State filters to show the one that isn't your booking     
+        //The below code updates the page with the new table after the entry is deleted        
+        /*
+         When the id does not equal the omne we're deleting, we'll pass it to theexercises array. Remove just what we are deleting.  
+         the _id comes from the mongoDb
+        */
         this.setState({
             bookings: this.state.bookings.filter(el => el._id !== id)
         })
     }
 
-    boookingList(){
-        return this.state.bookings.map(currentbooking =>{
+    boookingList() {
+        return this.state.bookings.map(currentbooking => {
             return <Booking booking = {
                 currentbooking
             }
