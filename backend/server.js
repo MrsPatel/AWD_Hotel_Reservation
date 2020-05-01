@@ -2,6 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+
+///ADD STATIC DIRECTORY FOR PUBLIC IN THIS  
+///So that port for server kicks off the port for front end 
+
 //So that we can have environment variables in .env file
 require('dotenv').config(); 
 
@@ -16,7 +20,7 @@ app.use(express.json());
 
 //DB URI to start MongoDB connection 
 const uri = process.env.ATLAS_URI; //From environment variable 
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
 const connection = mongoose.connection;
 //.once means once the connection is open it establishes
 connection.once('open', () => {

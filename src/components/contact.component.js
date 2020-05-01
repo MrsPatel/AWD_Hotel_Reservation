@@ -35,34 +35,17 @@ class Contact extends Component{
 
     render(){
         return(
-            <div className="col-sm-4 offset-sm-4">
-                <pre> </pre>
-                <pre> </pre>
-                <table bgcolor="lightblue">
-                <tr><pre> </pre></tr>
+            <div className="">
                 <h3>CONTACT US</h3>
                 <p>If you have any questions please contact us below:</p>
-                <ul>
-                <li><i class="fa fa-road"></i>Towson University</li>
-                <li><i class="fa fa-phone"></i>(555)-555-5555</li>
-                <li><i class="fa fa-envelope"></i>ksoni1@students.towson.edu</li>
-                </ul>
-                <tr><pre> </pre></tr>
-                </table>
+                <i class="fa fa-map w3-text-red"></i>Towson University<br></br>
+                <i class="fa fa-phone w3-text-red"></i>(555)-555-5555<br></br>
+                <i class="fa fa-envelope w3-text-red"></i>ksoni1@students.towson.edu<br></br>
                 <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
-                    <div className="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" className="form-control" id="name" placeholder="Name" />
-                    </div>
-                    <div className="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" />
-                    </div>
-                    <div className="form-group">
-                        <label for="message">Message</label>
-                        <textarea className="form-control" rows="5" id="message" placeholder="Enter your message"></textarea>
-                    </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                        <p><input type="text" className="form-control" id="name" placeholder="Name"/></p>
+                        <p><input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Email"/></p>
+                        <p><textarea className="form-control" rows="5" id="message" placeholder="Enter your message"></textarea></p>
+                        <button type="submit" className="btn btn-primary">Send Message</button>
                 </form>
             </div>
         )
