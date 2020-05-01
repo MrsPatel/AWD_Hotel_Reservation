@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 /*
@@ -9,10 +8,9 @@ import axios from 'axios';
 */
 const Payment = props => (
     <tr>
-        <td>${props.payment.roomCharges}</td>
-        <td>{props.payment.bookingID}</td>
+        <td id="charge">${props.payment.roomCharges}</td>
+        <td id="booking">{props.payment.bookingID}</td>
         <td>{props.payment.paid}</td>
-   
     </tr>
 )
 
