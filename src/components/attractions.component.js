@@ -42,7 +42,7 @@ export default class Navbar extends Component {
 
               <tr><pre> </pre></tr>
               <tr>
-              <td><img src="Shopping Mall.jpg" alt="Shopping Mall" width="400" height="200" align="left-center"></img></td>
+              <td><img src="ShoppingMall.jpg" alt="Shopping Mall" width="400" height="200" align="left-center"></img></td>
               <td>&nbsp;&nbsp;</td>
                 <td>
                   <b><font size="5">Shopping Mall</font></b>
