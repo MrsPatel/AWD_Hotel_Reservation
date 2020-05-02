@@ -3,7 +3,7 @@ import axios from 'axios';
 
 class Contact extends Component{
   
-    handleSubmit(e){
+    handleSubmit(e) {
         //alert("Message Sent."); 
         e.preventDefault();
         const name = document.getElementById('name').value;
@@ -11,25 +11,30 @@ class Contact extends Component{
         const message = document.getElementById('message').value;
 
         axios({
+<<<<<<< HEAD
             method: "POST", 
             url:"/contact", 
+=======
+            method: "POST",
+            url: "http://localhost:5000/contact",
+>>>>>>> ee1fb1ba861b6cee72c765d0af89e696a6e954d9
             data: {
-                name: name,   
-                email: email,  
+                name: name,
+                email: email,
                 message: message
             }
-        }).then((response)=>{
-            if (response.data.msg === 'success'){
-                alert("Message Sent."); 
+        }).then((response) => {
+            if (response.data.msg === 'success') {
+                alert("Message Sent.");
                 this.resetForm()
-            }else if(response.data.msg === 'fail'){
+            } else if (response.data.msg === 'fail') {
                 alert("Message failed to send.")
-            } 
+            }
         })
         window.location = '/';
     }
 
-    resetForm(){
+    resetForm() {
         document.getElementById('contact-form').reset();
     }
 
