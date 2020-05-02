@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 //import { Link } from 'react-router-dom';
 
 export default class Navbar extends Component {
@@ -15,7 +17,7 @@ export default class Navbar extends Component {
                 <td>
                   <b><font size="5">Playground</font></b>
                     <ul>
-                      <li>For family and kids.</li>
+                      <li>For Family and Kids.</li>
                       <li>Ice Cream Parlour in the Summer</li>
                       <li>Nice sitting area</li>
 
@@ -40,7 +42,7 @@ export default class Navbar extends Component {
 
               <tr><pre> </pre></tr>
               <tr>
-              <td><img src="Shopping Mall.jpg" alt="Shopping Mall" width="400" height="200" align="left-center"></img></td>
+              <td><img src="ShoppingMall.jpg" alt="Shopping Mall" width="400" height="200" align="left-center"></img></td>
               <td>&nbsp;&nbsp;</td>
                 <td>
                   <b><font size="5">Shopping Mall</font></b>
