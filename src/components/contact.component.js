@@ -11,13 +11,8 @@ class Contact extends Component{
         const message = document.getElementById('message').value;
 
         axios({
-<<<<<<< HEAD
             method: "POST", 
             url:"/contact", 
-=======
-            method: "POST",
-            url: "http://localhost:5000/contact",
->>>>>>> ee1fb1ba861b6cee72c765d0af89e696a6e954d9
             data: {
                 name: name,
                 email: email,
