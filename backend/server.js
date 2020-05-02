@@ -27,6 +27,7 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
+//API
 //Require files for routes
 const homeRouter = require('./routes/home');
 const bookingRouter = require('./routes/booking');

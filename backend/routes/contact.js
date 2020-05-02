@@ -7,8 +7,8 @@ var transport = {
   port: 465,
   secure: true,
   auth: {
-    user: 'nodemailertowson29@gmail.com',
-    pass: '****'
+    user: 'srivertest@gmail.com',
+    pass: 'sonir184'
   },
   tls:{
     rejectUnauthorized:false
@@ -35,7 +35,7 @@ router.route('/').post((req, res, next) => {
 
   var mailOptions = {
     from: name,
-    to: 'ksoni1@students.towson.edu',
+    to: 'sriver7@students.towson.edu',
     cc: email,
     subject: 'Riverfront Hotel Customer Contact Message',
     text: greeting + content

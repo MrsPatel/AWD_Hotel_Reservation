@@ -12,7 +12,7 @@ class Contact extends Component{
 
         axios({
             method: "POST", 
-            url:"http://localhost:5000/contact", 
+            url:"/contact", 
             data: {
                 name: name,   
                 email: email,  
