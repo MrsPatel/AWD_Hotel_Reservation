@@ -33,8 +33,8 @@ export default class BookingsList extends Component {
     }
 
     //This will get all the bookings from here 
+
     componentDidMount() {
-        //axios.get('https://guarded-tundra-05442.herokuapp.com/booking/')
         axios.get('/booking/')
             .then(response => {
                 this.setState({
