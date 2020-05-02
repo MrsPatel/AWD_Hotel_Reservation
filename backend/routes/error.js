@@ -1,12 +1,9 @@
-const router = require('express').Router();
-//let Error =require('../models/error.model');
+//const router = require('express').Router();
 
-//Get Hotel
+/*//Get Hotel
 router.route('*').get((req, res) => {
-    Error.find()
-        .then(error => res.json(error))
-        .catch(err => res.status(400).json('Error: ' + err));
-        console.log("Error 404 hit here")
+    console.log(res.error);
 });
 
 module.exports = router;
+*/

@@ -8,28 +8,41 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//Get last payment 
+router.route('/last').get((req, res) => {
+  Payment.find().sort({"_id" : -1}).limit(1)
+      .then(booking => res.json(booking))
+      .catch(err => res.status(400).json('Erorr: ' + err));
+});
 /*
-exercises/add and its's a post request. 
+ and its's a post request. 
 We have all values in the req
 */
 router.route('/add').post((req, res) => {
   const roomCharges = Number(req.body.roomCharges);
-  const bookingID = Number(req.body.bookingID);
+  const bookingID = String(req.body.bookingID);
+  const paid = String(req.body.paid);
   
 
-  const newExercise = new Payment({
+  const newPayment = new Payment({
     roomCharges,
-    bookingID
+    bookingID,
+    paid
   });
 
-  newExercise.save()
+  newPayment.save()
   .then(() => res.json('Payment added!'))
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//Get booking by created ID 
+router.route('/:id').get((req, res)=> {
+  Payment.findById(req.params.id)
+  .then(payment => res.json(payment))
+  .catch(err => res.status(400).json('Error: ' + err));
+})
 /*
 :id is created by mongoDB 
-
 */
 router.route('/:id').get((req, res) => {
     Payment.findById(req.params.id)
@@ -53,6 +66,7 @@ router.route('/update/:id').post((req, res) => {
       .then(payment => {
         payment.roomCharges = req.body.roomCharges;
         payment.bookingID = req.body.bookingID;
+        payment.paid = req.body.paid;
   
         payment.save()
           .then(() => res.json('Payment updated!'))

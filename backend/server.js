@@ -2,12 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+
 //So that we can have environment variables in .env file
-require('dotenv').config(); 
+require('dotenv').config();
 
 //To Create Express Server
 const app = express();
+console.log(__dirname);
 const port = process.env.PORT || 5000;
+app.use(express.static(__dirname + '/public'));
 
 //Middleware
 app.use(cors());
@@ -16,23 +19,29 @@ app.use(express.json());
 
 //DB URI to start MongoDB connection 
 const uri = process.env.ATLAS_URI; //From environment variable 
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+});
 const connection = mongoose.connection;
 //.once means once the connection is open it establishes
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
+//API
 //Require files for routes
 const homeRouter = require('./routes/home');
 const bookingRouter = require('./routes/booking');
 const roomRouter = require('./routes/room');
 const guestRouter = require('./routes/guest');
-const hotelRouter = require('./routes/hotel'); 
-const servicesRouter = require('./routes/services'); 
-const attractionsRouter = require('./routes/attractions'); 
-const aboutRouter = require('./routes/attractions'); 
-const errorRouter = require('./routes/error');
+const hotelRouter = require('./routes/hotel');
+const servicesRouter = require('./routes/services');
+const attractionsRouter = require('./routes/attractions');
+const aboutRouter = require('./routes/attractions');
+const contactRouter = require('./routes/contact');
+const paymentRouter = require('./routes/payment');
 
 
 //Use the files for routes
@@ -44,9 +53,10 @@ app.use('/hotel', hotelRouter);
 app.use('/services', servicesRouter);
 app.use('/attractions', attractionsRouter);
 app.use('/about', aboutRouter);
-app.get('*', errorRouter);
+app.use('/contact', contactRouter);
+app.use('/payment', paymentRouter)
 
 //Starts the server port 5000
 app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
+  console.log(`Server is running on port: ${port}`);
 });

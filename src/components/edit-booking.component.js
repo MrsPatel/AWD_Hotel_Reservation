@@ -12,6 +12,7 @@ export default class EditBooking extends Component {
         //Binding 'this' to each method so that 
         'this' refers to the right thing
         */
+        this.onChangeHotel = this.onChangeHotel.bind(this);
         this.onChangeRoom = this.onChangeRoom.bind(this);
         this.onChangeFirstName = this.onChangeFirstName.bind(this);
         this.onChangeLastName = this.onChangeLastName.bind(this);
@@ -29,6 +30,7 @@ export default class EditBooking extends Component {
         Rooms is an array to select the rooms that are in the database
         */
         this.state = {
+            hotel: '',
             room: '',
             firstName: '',
             lastName: '',
@@ -36,6 +38,7 @@ export default class EditBooking extends Component {
             email: '',
             checkIn: new Date(),
             checkOut: new Date(),
+            hotels: [],
             rooms: []
         }
     }
@@ -47,12 +50,13 @@ export default class EditBooking extends Component {
     When the Create booking component is about to load, right before
     it loads, it's going to run this
     */
-    componentDidMount(){
-        axios.get('https://guarded-tundra-05442.herokuapp.com/booking/'+this.props.match.params.id)
-        //axios.get('http://localhost:5000/booking/'+this.props.match.params.id)
+    componentDidMount() {
+        //axios.get('https://guarded-tundra-05442.herokuapp.com/booking/'+this.props.match.params.id)
+        axios.get('/booking/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
-                    room: response.data.room, 
+                    hotel: response.data.hotel,
+                    room: response.data.room,
                     firstName: response.data.firstName,
                     lastName: response.data.lastName,
                     phone: response.data.phone,
@@ -61,20 +65,33 @@ export default class EditBooking extends Component {
                     checkOut: new Date(response.data.checkOut)
                 })
             })
-            .catch(function (error){
+            .catch(function (error) {
                 console.log(error);
             })
-        axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
-        //axios.get('http://localhost:5000/room/')
+        //axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
+        axios.get('/hotel/')
             .then(response => {
-                if (response.data.length > 0){
+                if (response.data.length > 0) {
+                    this.setState({
+                        hotels: response.data.map(hotel => hotel.hotel),
+                        hotel: response.data[0].hotel
+                    })
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+        axios.get('/room/')
+            .then(response => {
+                if (response.data.length > 0) {
                     this.setState({
                         rooms: response.data.map(room => room.room),
                         room: response.data[0].room
                     })
                 }
             })
-            .catch ((error) => {
+            .catch((error) => {
                 console.log(error);
             })
     }
@@ -85,30 +102,36 @@ export default class EditBooking extends Component {
     //Whenever room is changed it will set the state. 
     //The targe is the textbox, value will be the value of that textbox
     //This is just fot the room element within the staee
-    onChangeRoom(e){
+    onChangeHotel(e) {
+        this.setState({
+            hote: e.target.value
+        })
+    }
+
+    onChangeRoom(e) {
         this.setState({
             room: e.target.value
         })
     }
 
-    onChangeFirstName(e){
+    onChangeFirstName(e) {
         this.setState({
             firstName: e.target.value
         })
     }
-    onChangeLastName(e){
+    onChangeLastName(e) {
         this.setState({
             lastName: e.target.value
         })
     }
 
-    onChangePhone(e){
+    onChangePhone(e) {
         this.setState({
             phone: e.target.value
         })
     }
 
-    onChangeEmail(e){
+    onChangeEmail(e) {
         this.setState({
             email: e.target.value
         })
@@ -119,23 +142,24 @@ export default class EditBooking extends Component {
     get the value from the date 
     Calendar will be clickable 
     */
-    onChangeCheckin(date){
+    onChangeCheckin(date) {
         this.setState({
             checkIn: date
         })
     }
 
-    onChangeCheckout(date){
+    onChangeCheckout(date) {
         this.setState({
             checkOut: date
         })
     }
 
-    onSubmit(e){
+    onSubmit(e) {
         //prevents default HTML submit behavior from taking place
         e.preventDefault();
 
         const booking = {
+            hotel: this.state.hotel,
             room: this.state.room,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -146,11 +170,11 @@ export default class EditBooking extends Component {
         }
 
         console.log(booking);
-        axios.post('https://guarded-tundra-05442.herokuapp.com/booking/update/'+this.props.match.params.id, booking)
-        //axios.post('http://localhost:5000/booking/update/'+this.props.match.params.id, booking)
+        //axios.post('https://guarded-tundra-05442.herokuapp.com/booking/update/'+this.props.match.params.id, booking)
+        axios.post('/booking/update/'+this.props.match.params.id, booking)
             .then (res => console.log(res.data));
         //send user data to backend 
-        
+
 
         //Take the person back to the home page
         //We need to change to take to the payments page
@@ -161,6 +185,23 @@ export default class EditBooking extends Component {
             <div>
                 <h3>Update My Booking</h3>
                 <form onSubmit={this.onSubmit}>
+                    <div className = "form-group">
+                        <label>Hotel: </label>
+                        <select ref="hotelInput"
+                            required
+                            className = "form-control"
+                            value = {this.state.hotel}
+                            onChange={this.onChangeHotel}>
+                            {
+                                this.state.hotels.map(function(hotel){
+                                    return <option
+                                        key={hotel}
+                                        value={hotel}>{hotel}
+                                        </option>
+                                })
+                            }
+                        </select>
+                    </div>
                     <div className = "form-group">
                         <label>Room: </label>
                         <select ref="roomInput"
