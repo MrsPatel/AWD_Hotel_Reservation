@@ -25,7 +25,7 @@ export default class PaymentsPage extends Component {
     }
     //This will get the last payment entered in DB 
     componentDidMount(){
-        axios.get('http://localhost:5000/payment/last')
+        axios.get('/payment/last')
             .then(response => {
                 this.setState({payments: response.data})
             })
