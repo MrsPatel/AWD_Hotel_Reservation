@@ -48,7 +48,6 @@ export default class CreateBooking extends Component {
     When the Create booking component is about to load, right before
     it loads, it's going to run this to get the room table 
     */
-<<<<<<< HEAD
     componentDidMount(){
         axios.get('/hotel/')
         .then(response => {
@@ -62,21 +61,6 @@ export default class CreateBooking extends Component {
         .catch ((error) => {
             console.log(error);
         })
-=======
-    componentDidMount() {
-        axios.get('http://localhost:5000/hotel/')
-            .then(response => {
-                if (response.data.length > 0) {
-                    this.setState({
-                        hotels: response.data.map(hotel => hotel.hotel),
-                        hotel: response.data[0].hotel
-                    })
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            })
->>>>>>> ee1fb1ba861b6cee72c765d0af89e696a6e954d9
         //axios.get('https://guarded-tundra-05442.herokuapp.com/room/')
         axios.get('/room/')
             .then(response => {
@@ -191,14 +175,8 @@ export default class CreateBooking extends Component {
         var paymentCalc = totalStay * roomRate;
 
         //Send booking to backend
-<<<<<<< HEAD
         axios.post('/booking/add', booking)
             .then (res => console.log(res.data));
-=======
-        axios.post('http://localhost:5000/booking/add', booking)
-            .then(res => console.log(res.data));
->>>>>>> ee1fb1ba861b6cee72c765d0af89e696a6e954d9
-
         //get payment to get the booking id 
         axios.get('/booking/last')
             .then(response => {
@@ -225,17 +203,8 @@ export default class CreateBooking extends Component {
             paid: "Pending"
         }
         console.log(payment);
-<<<<<<< HEAD
-        
         axios.post('/payment/add', payment)
             .then (res => console.log(res.data));
-        
-=======
-
-        axios.post('http://localhost:5000/payment/add', payment)
-            .then(res => console.log(res.data));
-
->>>>>>> ee1fb1ba861b6cee72c765d0af89e696a6e954d9
         //Take person to the payments page
         window.location = '/payment';
     }
