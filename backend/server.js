@@ -44,7 +44,7 @@ const aboutRouter = require('./routes/attractions');
 const contactRouter = require('./routes/contact');
 const errorRouter = require('./routes/error');
 const paymentRouter = require('./routes/payment');
-
+const paypalRouter = require('./routes/paypal');
 
 //Use the files for routes
 app.use('/home', homeRouter);
@@ -57,6 +57,7 @@ app.use('/attractions', attractionsRouter);
 app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 app.use('/payment', paymentRouter)
+app.use('/paypal', paypalRouter);
 app.use('*', errorRouter);
 
 //Starts the server port 5000
