@@ -57,7 +57,7 @@ app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 app.use('/payment', paymentRouter)
 app.use('/paypal', paypalRouter);
-app.use('*', errorRouter);
+//app.use('*', errorRouter);
 
 //Starts the server port 5000
 app.listen(port, () => {
