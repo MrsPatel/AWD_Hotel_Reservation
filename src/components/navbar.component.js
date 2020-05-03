@@ -1,6 +1,10 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 //Allows us to link to different routes. 
-import { Link } from 'react-router-dom';
+import {
+  Link
+} from 'react-router-dom';
 
 
 //navbar is from Bootstrap
