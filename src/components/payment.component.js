@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import axios from 'axios';
+
 const Payment = props => (
     <tr>
         <td id="charge">${props.payment.roomCharges}</td>
