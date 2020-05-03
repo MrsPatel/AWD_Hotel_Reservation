@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import axios from 'axios';
 
-/*
-     <td>
-        <Link to={"/editBooking/"+props.payment._id}>Edit</Link> | <a href="/" onClick={() => { props.deleteBooking(props.booking._id) }}>Cancel</a>
-        </td>
-*/
 const Payment = props => (
     <tr>
         <td id="charge">${props.payment.roomCharges}</td>
@@ -13,14 +10,10 @@ const Payment = props => (
         <td>{props.payment.paid}</td>
     </tr>
 )
-
 //Need to received the booking ID from the previous page 
 export default class PaymentsPage extends Component {
     constructor(props){
         super(props);
-
-        //this.onClickPayPal = this.onClickPayPal.bind(this);
-
         this.state = {payments: []};
     }
     //This will get the last payment entered in DB 
@@ -33,9 +26,6 @@ export default class PaymentsPage extends Component {
                 console.log(error);
             })
     }
-
-    
-
     paymentList(){
         return this.state.payments.map(currentPayment=>{
             return <Payment payment = {
@@ -47,12 +37,6 @@ export default class PaymentsPage extends Component {
             />;
         })
     }
-
-
-
-
-
-
     render(){
         return (
           <div>
@@ -70,6 +54,15 @@ export default class PaymentsPage extends Component {
               { this.paymentList() }
             </tbody>
           </table>
+          <html lang="en">
+          <body>
+            <h2>Ready to Checkout?</h2> 
+            <form action='/paypal' method="POST">
+              Payment: <input id="payment" name="pfield" type="text" value = " $450" />
+              <input type="submit" value="Buy"/>
+            </form>
+          </body>
+          </html>
         </div>
       )
     }
