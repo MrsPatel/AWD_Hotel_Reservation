@@ -7,8 +7,8 @@ var transport = {
   port: 465,
   secure: true,
   auth: {
-    user: 'srivertest@gmail.com',
-    pass: 'sonir184'
+    user: 'YOUR EMAIL HERE',
+    pass: 'PASSWORD HERE'
   },
   tls:{
     rejectUnauthorized:false
